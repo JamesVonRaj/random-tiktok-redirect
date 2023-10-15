@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random TikTok Redirect</title>
+  <script type="text/javascript">
+    // Your JavaScript logic here
+    window.onload = function() {
+      var tiktokLinks = [
+        { url: 'https://www.tiktok.com/@virtualbruises/video/7282103638795865390', weight: 49 },
+        { url: 'https://www.tiktok.com/@matchamilkshakegrl/video/7256530323045993770', weight: 49 },
+        { url: 'https://www.tiktok.com/@basedredactedgang/video/7275733499334757638', weight: 2 }
+      ];
+
+      var totalWeight = tiktokLinks.reduce((acc, item) => acc + item.weight, 0);
+      var randomNum = Math.random() * totalWeight;
+      var sum = 0;
+
+      for (var i = 0; i < tiktokLinks.length; i++) {
+        sum += tiktokLinks[i].weight;
+        if (randomNum < sum) {
+          window.location.href = tiktokLinks[i].url;
+          break;
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
