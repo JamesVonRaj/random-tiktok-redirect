@@ -15,7 +15,6 @@
       height: 100vh;
     }
     #status {
-      background-color: #ffffff;
       color: #333333;
       font-weight: 400;
       font-size: 2.5em;
@@ -29,9 +28,9 @@
     // Your JavaScript logic here
     window.onload = function() {
       var tiktokLinks = [
-        { url: 'https://www.tiktok.com/@otterfan05/video/7289907774060776736', weight: 45, type: 'common' },
-        { url: 'https://www.tiktok.com/@iraato/video/7102162966191017221', weight: 45, type: 'common' },
-        { url: 'https://www.tiktok.com/@offscriptstore/video/7291412639559814405', weight: 10, type: 'rare' }
+        { url: 'https://www.tiktok.com/@otterfan05/video/7289907774060776736', weight: 45, type: 'common', color: '#ffffff' },
+        { url: 'https://www.tiktok.com/@iraato/video/7102162966191017221', weight: 45, type: 'common', color: '#007bff' },
+        { url: 'https://www.tiktok.com/@offscriptstore/video/7291412639559814405', weight: 10, type: 'rare', color: '#ffd700' }
       ];
 
       var totalWeight = tiktokLinks.reduce((acc, item) => acc + item.weight, 0);
@@ -42,6 +41,7 @@
         sum += tiktokLinks[i].weight;
         if (randomNum < sum) {
           document.getElementById('status').innerText = tiktokLinks[i].type;
+          document.getElementById('status').style.backgroundColor = tiktokLinks[i].color;
           setTimeout(function() {
             window.location.href = tiktokLinks[i].url;
           }, 2000); // Redirect after 2 seconds
